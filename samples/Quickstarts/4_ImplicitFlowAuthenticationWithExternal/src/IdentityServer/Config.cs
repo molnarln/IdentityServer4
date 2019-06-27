@@ -25,7 +25,8 @@ namespace IdentityServer
                     Claims = new []
                     {
                         new Claim("name", "Alice"),
-                        new Claim("website", "https://alice.com")
+                        new Claim("website", "https://alice.com"),
+                        new Claim("gender", "woman")
                     }
                 },
                 new TestUser

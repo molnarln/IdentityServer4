@@ -6,6 +6,7 @@ using System;
 using IdentityServer4;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
@@ -14,10 +15,12 @@ namespace IdentityServer
     public class Startup
     {
         public IHostingEnvironment Environment { get; }
+        private IConfiguration configuration { get; set; }
 
-        public Startup(IHostingEnvironment environment)
+        public Startup(IHostingEnvironment environment, IConfiguration config)
         {
             Environment = environment;
+            configuration = config;
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -44,8 +47,8 @@ namespace IdentityServer
                 {
                     options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
-                    options.ClientId = "<insert here>";
-                    options.ClientSecret = "<insert here>";
+                    options.ClientId = configuration["Authentication:Google:ClientId"];
+                    options.ClientSecret = configuration["Authentication:Google:ClientSecret"];
                 })
                 .AddOpenIdConnect("oidc", "OpenID Connect", options =>
                 {
