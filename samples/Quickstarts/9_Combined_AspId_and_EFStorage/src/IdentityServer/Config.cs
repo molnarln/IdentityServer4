@@ -62,26 +62,26 @@ namespace IdentityServerAspNetIdentity
                 // OpenID Connect hybrid flow client (MVC)
                 new Client
                 {
-                    ClientId = "mvc",
-                    ClientName = "MVC Client",
-                    AllowedGrantTypes = GrantTypes.Hybrid,
+                   ClientId = "mvc",
+                ClientName = "MVC Client",
+                AllowedGrantTypes = GrantTypes.Hybrid,
 
-                    ClientSecrets =
-                    {
-                        new Secret("secret".Sha256())
-                    },
+                ClientSecrets =
+                {
+                    new Secret("secret".Sha256())
+                },
 
-                    RedirectUris           = { "http://localhost:5002/signin-oidc" },
-                    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+                RedirectUris           = { "http://localhost:5002/signin-oidc" },
+                PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
 
-                    AllowedScopes =
-                    {
-                        IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Profile,
-                        "api1"
-                    },
+                AllowedScopes =
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "api1"
+                },
 
-                    AllowOfflineAccess = true
+                AllowOfflineAccess = true
                 },
                 // JavaScript Client
                 new Client

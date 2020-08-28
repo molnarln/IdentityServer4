@@ -66,8 +66,8 @@ namespace IdentityServer
                 {
                     options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
-                    options.ClientId = "<insert here>";
-                    options.ClientSecret = "<insert here>";
+                    options.ClientId = "Copy Google ClientID here";
+                    options.ClientSecret = "Copy Google ClientSecret here";
                 })
                 .AddOpenIdConnect("oidc", "OpenID Connect", options =>
                 {

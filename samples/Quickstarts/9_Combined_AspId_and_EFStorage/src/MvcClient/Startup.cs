@@ -15,10 +15,10 @@ namespace MvcClient
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddAuthentication(options =>
-                {
-                    options.DefaultScheme = "Cookies";
-                    options.DefaultChallengeScheme = "oidc";
-                })
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc";
+            })
                 .AddCookie("Cookies")
                 .AddOpenIdConnect("oidc", options =>
                 {
@@ -51,6 +51,7 @@ namespace MvcClient
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            
 
             app.UseAuthentication();
 
